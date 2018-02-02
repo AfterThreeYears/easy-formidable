@@ -12,7 +12,7 @@ npm run test
 
 ➜  easy-formidable npm run test
 
-> easy-formidable@1.0.0 test /Users/jimmytu/wbb/demo/node/easy-formidable
+> easy-formidable@1.0.0 test 
 > mocha ./test
 
 
