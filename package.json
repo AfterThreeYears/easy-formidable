@@ -1,0 +1,24 @@
+{
+  "name": "easy-formidable",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./bin/www.js",
+  "scripts": {
+    "test": "mocha ./test",
+    "start": "node ./bin/www.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "buffer-split": "^1.0.0",
+    "mime": "^2.2.0",
+    "uuid": "^3.2.1"
+  },
+  "engines": {
+    "node": ">=7"
+  },
+  "devDependencies": {
+    "mocha": "^5.0.0",
+    "supertest": "^3.0.0"
+  }
+}
