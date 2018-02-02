@@ -1,11 +1,9 @@
-
 const EventEmitter = require('events').EventEmitter;
 const util = require('util');
 const fs = require('fs');
 const bsplit = require('buffer-split')
 const mime = require('mime');
 const uuid = require('uuid');
-const statAsync = util.promisify(fs.stat);
 
 class Formidable extends EventEmitter {
   constructor() {
