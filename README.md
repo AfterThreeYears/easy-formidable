@@ -69,10 +69,11 @@ module.exports = server;
 ```
 
 ## 例子效果
-###上传
-<img src="./上传.png"  width="500" />
-###返回json
-<img src="./结果.png"  width="500" />
+### 上传
+<img src="./上传.png"  width="800" />
+
+### 返回json
+<img src="./结果.png"  width="800" />
 
 ## 其他
 ```javascript
@@ -109,8 +110,11 @@ req.on('end', handleEnd);
 
 body进行toString()以后是如下图所示
 
-<img src="./start.png" width="500" />
-<img src="./end.png" width="500" />
+### 开始
+<img src="./start.png" width="800" />
+
+### 结束
+<img src="./end.png" width="800" />
 
 然后进行body的解析
 
