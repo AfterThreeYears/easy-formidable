@@ -1,5 +1,9 @@
 const http = require('http');
 const Formidable = require('./formidable');
+const fs = require('fs');
+const path = require('path');
+
+const html = fs.readFileSync(path.join(__dirname, './index.html'), 'utf-8');
 
 const server = http.createServer((req, res) => {
   if (req.url == '/upload' && req.method.toLowerCase() == 'post') {
@@ -21,14 +25,15 @@ const server = http.createServer((req, res) => {
     return;
   }
   res.writeHead(200, {'content-type': 'text/html'});
-  res.end(
-    '<form action="/upload" enctype="multipart/form-data" method="post">'+
-    '<input type="text" name="title"><br>'+
-    '<input type="file" name="upload" multiple="multiple"><br>'+
-    '<input type="file" name="upload1" multiple="multiple"><br>'+
-    '<input type="submit" value="Upload">'+
-    '</form>'
-  );
+  // res.end(
+  //   '<form action="/upload" enctype="multipart/form-data" method="post">'+
+  //   '<input type="text" name="title"><br>'+
+  //   '<input type="file" name="upload" multiple="multiple"><br>'+
+  //   '<input type="file" name="upload1" multiple="multiple"><br>'+
+  //   '<input type="submit" value="Upload">'+
+  //   '</form>'
+  // );
+  res.end(html);
 });
 
 module.exports = server;

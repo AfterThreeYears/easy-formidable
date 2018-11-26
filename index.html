@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <form>
+  <!-- <form action="/upload" enctype="multipart/form-data" method="post"> -->
+    <input type="text" name="title"><br>
+    <div class="file-wrap">
+      <input type="file" name="upload" multiple="multiple"><br>
+      <input type="file" name="upload1" multiple="multiple"><br>
+    </div>
+    <input type="submit" value="Upload" onclick="upload">
+  </form>
+  <script>
+
+    const fd = new FormData();
+    document.querySelector('.file-wrap').addEventListener('change', (e) => {
+      if (e.target.tagName !== 'INPUT') return;
+      fd.append(e.target.name, e.target.files[0]);
+    });
+    document.querySelector('[type="submit"]').addEventListener('click', (e) => {
+      e.preventDefault();
+      upload();
+    })
+    function upload() {
+      const xhr = new XMLHttpRequest();
+      xhr.open('post', 'http://localhost:3333/upload');
+      xhr.onreadystatechange = () => {}
+      //监听文件上传进度
+      xhr.upload.onprogress = function(evt){
+          //lengthComputabel: 文件长度是否可计算
+          if(evt.lengthComputable){
+              //evt.loaded: 已下载的字节数
+              //evt.total: 文件总字节数
+              var percent = Math.round(evt.loaded*100/evt.total);
+              console.log(`当前进度:${percent}%`);
+          }
+      }
+      xhr.send(fd);
+    }
+    
+
+  </script>
+</body>
+</html>
